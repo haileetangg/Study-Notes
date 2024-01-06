@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 一个对象的原型对象是另一个对象的实例 -->
+    <script>
+        function Person(){}
+        Person.prototype.dance = function(){
+            console.log('每个人都应该学会跳舞')
+        }
+        function Hailee(){}
+        Hailee.prototype = new Person()
+        let hailee = new Hailee()
+        console.log(hailee instanceof Hailee)
+        console.log(hailee instanceof Person)
+        console.log(hailee instanceof Object)
+    </script>
+</body>
+</html>

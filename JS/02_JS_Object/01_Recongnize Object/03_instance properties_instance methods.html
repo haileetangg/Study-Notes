@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        如果构造函数上的属性跟方法在原型上也有，只会调用构造函数的属性跟方法
+     -->
+    <script>
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            this.greeting = function(){
+                console.log('hello, I am Hailee')
+            }
+        }
+        Person.prototype.name = "dorothy";
+        Person.prototype.age = 24;
+        const p1 = new Person("hailee",25)
+        console.log(p1.name ,p1.age, 'p1')
+    </script>
+</body>
+</html>

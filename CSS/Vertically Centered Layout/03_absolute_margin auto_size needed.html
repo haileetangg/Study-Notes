@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 
+    为什么能够水平垂直居中？
+    在绝对定位中，如果"Top" "right" "bottom" "left“ 都被设置了，并且”margin“设置为了auto,
+    这时浏览器会自动计算外边距以均等分配给元素左右、上下两侧。
+
+    //在一个绝对定位容器内部居中一个元素时非常常用。
+ -->
+<style>
+    .outer{
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        background-color: pink;
+    }
+    .inner{
+        position: absolute;
+        height: 300px;
+        width: 300px;
+        background-color: hotpink;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+</style>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

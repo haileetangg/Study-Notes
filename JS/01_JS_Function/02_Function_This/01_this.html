@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL Getting Started</title>
+</head>
+<body>
+    <script>
+        // var o = 0;
+        // var obj = {
+        //     a:2,
+        //     fun: function(){
+        //         console.log(this,'---fun')
+        //         // function innerFun(){ //函数申明
+        //         //     console.log(this,'---innerFun')
+        //         // }
+        //         // innerFun()  //函数声明后立即执行，即为立即执行函数
+        //     }
+        // }
+        // obj.fun()
+        // //立即执行函数的this指向的是window
+        // (function(){
+        //     console.log(this,'---fun')
+        // })();
+        var obj = {
+            b:3,
+            foo: function(){
+                function bibao(){
+                    console.log(this,'闭包里面的this')
+                }
+                return bibao;
+            }
+        }
+        obj.foo()();
+        function pointer(){
+            console.log(this,'poiter__this')
+        }
+        var obj={
+            a:3,
+            pointer: pointer
+        }
+        var exe = obj.pointer;
+        exe();
+        function bar(fun){
+            fun();
+        }
+        var obj2={
+            a:10,
+            foo:pointer
+        }
+        bar(obj2.foo)
+    </script>
+</body>
+</html>

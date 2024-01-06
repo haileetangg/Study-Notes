@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            border: 2px solid #000;
+            /* 没有清除浮动，可能导致高度塌陷 */
+        }
+
+        .float-child {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: lightblue;
+        }
+        .float-child1 {
+            width: 200px;
+            height: 200px;
+            margin:10px;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    I'm the hotpink I'm the hotpink
+    <div class="float-child"></div>
+    <!-- <div class="float-child1"></div> -->
+    <span>I'm a span tag</span>
+</div>
+
+</body>
+</html>

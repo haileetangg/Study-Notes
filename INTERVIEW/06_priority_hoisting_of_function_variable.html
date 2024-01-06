@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width:100%;
+        height:20em;
+    }
+    .top{
+        width:100%;
+        height:10em;
+        background-color: pink;
+        margin-right: -5em;
+        display: flex;
+        /* margin-top: -5em; */
+        /* margin-bottom: 6em; */
+    }
+    .top-left{
+        width:50%;
+        background-color: beige;
+        /* margin-right: -5em; */
+    }
+    .top-right{
+        width:50%;
+        background-color: aquamarine;
+    }
+    .bottom{
+        width:100%;
+        height:10em;
+        margin-top: 5em;
+        /* margin-top:-5em; */
+        background-color: hotpink;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="top">
+            <div class="top-left"></div>
+            <div class="top-right"></div>
+        </div>
+        <div class="bottom"></div>
+    </div>
+</body>
+<script>
+    //函数声明的优先级高于变量提升的优先级，因为函数提升不仅声明提升了，而且函数体也提升了
+    //变量提升的话,变量声明提升了，但是赋值不会
+    console.log(a,'aaaa')
+    var a = 1;
+    function a(){
+        return 2;
+    }
+</script>
+</html>

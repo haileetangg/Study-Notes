@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    :root{
+        box-sizing: border-box;
+    }
+    body{
+        box-sizing: inherit;
+        background-color: #0072b0;
+    }
+    body * + * {
+        margin-top: 1.5em;
+    }
+    .container {
+        display:  grid;
+        grid-template-areas: "title title"
+                             "nav   nav"
+                             "main  aside1"
+                             "main  aside2";
+        grid-template-columns:2fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-gap: 1em;
+
+    }
+    header{
+        grid-area: title;
+    }
+    .site-nav {
+        grid-area: nav;
+    }
+    .main {
+        grid-area: main;
+    }
+    .sidebar-top {
+        grid-area: aside1;
+    }
+    .sidebar-bottom {
+        grid-area: aside2;
+    }
+    header > h1 {
+        color: white; 
+    }
+    .site-nav{
+        padding: .5em;
+        background-color: #d05bd0;
+        border-radius: .5em;
+    }
+    .tile {
+        background-color: white;
+        padding: .5em;
+        border-radius: .5em;
+    }
+</style>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ink</h1>
+        </header>
+        <nav class="site-nav"></nav>
+        <main class="main tile"></main>
+        <div class="sidebar-top tile"></div>
+        <div class="sidebar-bottom tile"></div>
+    </div>
+</body>
+</html>

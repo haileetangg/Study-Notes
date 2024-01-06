@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        typeof: 一元运算符，返回一个表达式的数据类型，返回的是表示这个数据类型的字符串,基本数据类型可以使用这个运算符,
+        引用数据类型除了function能返回function以外，其他的如数组,对象，Date等都会返回object
+
+        instanceof:二元运算符，用于检测一个实例是否由特定的构造函数所创建,
+        或者说这个实例的原型链中是否有该特定构造函数的原型对象
+
+        Object.prototype.toString.call():返回一个表示对象的类的字符串；结构如[object type]
+     -->
+    <script>
+        var age = 25;
+        var name = "hailee";
+        var isMale = false;
+        // var location = undefined;
+        var boyfriend = null;
+        var dad = {
+            name:'huitang',
+            age:54,
+            hobby:function(){
+                console.log('爸爸喜欢研究股票')
+            }
+        }
+        var hobbies = ['watching','lifting','playing','studying']
+        function foo(){};
+        console.log(typeof age);
+        console.log(typeof name);
+        console.log(typeof isMale);
+        // console.log(typeof location);
+        console.log(typeof boyfriend);
+        console.log(typeof dad);
+        console.log(typeof hobbies);
+        console.log(typeof foo);
+        console.log( Object.prototype.toString.call(dad));
+    </script>
+</body>
+</html>

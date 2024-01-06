@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Open+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+</head>
+<style>
+    /* Grid布局的代码 */
+    :root{
+        box-sizing:  border-box;
+    }
+    *,
+    ::before,
+    ::after {
+        box-sizing:  inherit;
+    }
+    body{
+        background-color: #0072b0;
+        font-family: 'Open Sans', sans-serif;
+        margin: 2em;
+    }
+    .container {
+        display:  grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-gap: 1.5em;
+        max-width:1080px;
+        margin: 0 auto;
+    }
+    header,
+    nav {
+        grid-column: 1 / 3;
+        grid-row: span 1;
+    }
+    header > h1 {
+        color: white;
+    }
+    h1 {
+        font-family: 'Montserrat Alternates', sans-serif;
+    }
+    .main{ /* 这个是对的，这两个区域没有问题 */
+        grid-column: 1 / 2;
+        grid-row: 3 / 5;
+        line-height: 1.5;
+        letter-spacing:0.01em;
+    }
+    .sidebar-top {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+    .sidebar-bottom {
+        grid-column: 2 / 3;
+        grid-row: 4 / 5;
+    }
+    .tile {
+        padding: 1.5em;
+        background-color: #fff;
+    }
+    .tile > h1 {
+        margin-top: 0;
+    } 
+    .tile * + * {
+        margin-top: 1.5em;
+    }
+    /* flex布局的代码 */
+    .page-heading {
+        margin: 0;
+    }
+    .site-nav {
+        display:  flex;
+        align-items: center;
+        margin: 0;
+        padding: .5em;
+        background-color: #d05bd0;
+        list-style-type: none;
+        border-radius: .2em;
+    }
+    .site-nav > li {
+        margin-top: 0;
+    }
+    .site-nav > li > a {
+        display: block;
+        padding: .5em 1em;
+        background-color: #3CB371;
+        color:white;
+        text-decoration: none;
+        transition: all linear .5s;
+    }
+    .site-nav > li > a:hover {
+        /* padding:.6em 1.2em; */
+        /* font-size: 1.12em; */
+        background-color: #5bcd8e;
+    }
+    .site-nav > li + li {
+        margin-left: 1.5em;
+    }
+    .site-nav > .nav-right {
+        margin-left: auto;
+    }
+    .login-form h3 {
+        margin: 0;
+        font-size: .9em;
+        font-weight: bold;
+        text-align: right;
+        text-transform: uppercase;
+    }
+    .login-form input:not([typr=checkbox]):not([type=radio]) {
+        padding:.3em .5em;
+        display:  block;
+        margin-top: 0;
+        width: 100%;
+        transition: border .5s ease-out;
+        transition-duration: .5s;
+    }
+    .login-form input:focus {
+        border:2px solid #3CB371;
+        outline: none;
+        background-color: azure;
+    }
+    .login-form button {
+        margin-top: 1em;
+        color: white;
+        border: 1px solid #3CB371;
+        background-color: #3CB371;
+        padding: .5em 1em;
+        cursor: pointer;
+        transition: all linear .5s;
+        outline: none;
+    }
+    .login-form button:hover {
+        background-color: #5bcd8e;
+        border: 1px solid #5bcd8e;
+    }
+    .centered {
+        text-align: center;
+    }
+    .cost {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: .7;
+    }
+    small {
+        text-transform: uppercase;
+    }
+    .cost > span {
+        margin-top: 0;
+    }
+    .cost-currency {
+        font-size: 2rem;
+    }
+    .cost-dollars {
+        font-size: 4rem;
+    }
+    .cost-cents {
+        font-size: 1.5rem;
+        align-self: flex-start;
+    }
+    .cta-button {
+        display: block;
+        background-color: #3CB371;
+        color: white;
+        padding: .5em 1em;
+        text-decoration: none;
+    }
+    .cta-button:hover {
+        background-color: #5bcd8e;  
+    }
+</style>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="page-heading">Ink</h1>
+        </header>
+        <nav>
+            <ul class="site-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="features">Features</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/support">Support</a></li>
+                <li class="nav-right">
+                    <a href="/about">About</a>
+                </li>
+            </ul>
+        </nav>
+        <main class="main tile">
+            <h1>Team collaboration done right</h1>
+            <p>In today's fast-paced business environment, effective team collaboration is not just a benefit; it's a necessity. "Team Collaboration Done Right" goes beyond mere group work;
+            it's about fostering an environment where ideas thrive, communication is seamless, and productivity soars.</p>
+            <p>At the heart of successful team collaboration lies clear and open communication. This means not only sharing ideas freely but also listening actively to others. Tools like instant messaging, video conferencing, 
+            and collaborative platforms play a vital role in facilitating this constant flow of information. They bridge geographical and time-zone barriers, bringing teams closer regardless of their physical location.</p>
+            <p>In conclusion, "Team Collaboration Done Right" is a blend of effective communication, shared goals, diversity, respectful conflict, and recognition.
+            This approach not only enhances productivity but also leads to a more fulfilled and engaged workforce, paving the way for innovation and long-term success.</p>
+        </main>
+        <div class="sidebar-top tile">
+            <form action="" class="login-form">
+                <h3>Login</h3>
+                <p>
+                    <label for="username">Username</label>
+                    <input id="username" type="text" name="username">
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password">
+                </p>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="sidebar-bottom tile centered">
+            <small>Starting at</small>
+            <div class="cost">
+                <span class="cost-currency">$</span>
+                <span class="cost-dollars">20</span>
+                <span class="cost-cents">.99</span>
+            </div>
+            <a href="/pricing" class="cta-button">
+                Sign up
+            </a>
+        </div>
+    </div>
+</body>
+</html>

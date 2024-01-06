@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = [1,2,3,4,5]
+        let result = array.reduce((pre,cur,index,arr)=>{
+            return pre + cur;
+        },5)
+        console.log(result,'result---')
+        let result1 = array.reduceRight((pre,cur,index,array)=>{
+            return pre + cur;
+        },5)
+        console.log(result1,'result1----')
+    </script>
+</body>
+</html>

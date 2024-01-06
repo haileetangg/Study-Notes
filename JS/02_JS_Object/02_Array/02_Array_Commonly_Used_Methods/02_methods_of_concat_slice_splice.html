@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // concat(数组)、
+        // slice(截取的起始坐标(包括)，截取的结束坐标(不包括))、
+        // splice(删除的起始坐标(包括),删除的个数)
+        // splice(删除的起始坐标(包括),删除的个数,插入的数据项)
+        
+        let person = ["hailee","25","loves","apple","starbucks",{age:25,gender:'male'}]
+        let firstName = ['h','a','i','l','e','e']
+        let lastName = ['t','a','n','g']
+        let concatName = firstName.concat(lastName) //concat用于拼接
+        console.log(concatName,'concatName--')
+
+        let hobbes = ['hailee','loves','apples','starbucks']
+        let hobbesResult1 = hobbes.slice(0,2) //slice不包括最后一个
+        console.log(hobbesResult1,'hobbesResult1')
+
+        //splice两个参数是删除的操作，三个参数是插入的操作
+        let fitness = ['lifting','running','jogging']
+        let fitnessResult1 = fitness.splice(0,2) //删除操作
+        console.log('fitnessResult',fitnessResult1,fitness)
+        let fitnessResult2 = fitness.splice(0,2,'playing') //插入操作
+        console.log('fitnessResult2',fitnessResult2,fitness)
+    </script>
+</body>
+</html>

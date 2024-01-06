@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = ["hailee","25","loves","apple","starbucks",{age:25,gender:'male'}]
+        let pushResult = array.push({age:26,gender:'male'}) //push: 返回push操作后数组的长度
+        console.log(array,pushResult,'pushResult')
+        let popResult = array.pop()  //pop: 返回删除的那一个元素
+        console.log(array,popResult,'popResult')
+
+        let shiftResult = array.shift('bob') //shift: 删除元素，返回删除的那一个元素
+        console.log(array,shiftResult,'shiftResult') 
+        let unshiftResult = array.unshift() //unshift: 添加元素。返回数组的长度
+        console.log(array,unshiftResult,'unshiftResult')
+    </script>
+</body>
+</html>

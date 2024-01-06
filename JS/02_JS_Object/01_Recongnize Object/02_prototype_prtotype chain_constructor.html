@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            this.greeting = function(){
+                console.log('hello, I am Hailee')
+            }
+        }
+        const obj = new Object();
+        // Person.prototype = obj;
+        const hailee = new Person('hailee',25);
+        console.log(Person.prototype)
+        console.log(hailee.__proto__)
+        console.log(Person.prototype===hailee.__proto__)//true
+        console.log(Person.prototype.constructor,'Person.prototype.constructor')
+        console.log(hailee.constructor===Person,'Person.constructor')
+        console.log(Person.prototype.constructor === Person)
+        console.log(Person.prototype.__proto__===Object.prototype)//true
+        console.log(Object.prototype===obj.__proto__)//true
+        console.log(Person.prototype.__proto__===obj.__proto__)//true
+        console.log(hailee)
+    </script>
+</body>
+</html>

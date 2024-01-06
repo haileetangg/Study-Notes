@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 绝对定位 + margin负值 -->
+<style>
+    .outer{
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        background-color: pink;
+    }
+    .inner{
+        position: absolute;
+        height: 300px;
+        width: 300px;
+        background-color: hotpink;
+        left: 50%;
+        top: 50%;
+        margin-left:  -150px;
+        margin-top: -150px;
+    }
+</style>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

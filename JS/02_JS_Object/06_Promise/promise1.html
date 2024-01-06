@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const promise = new Promise((resolve,reject)=>{
+            setTimeout(()=>resolve('Hailee Failed'))
+            reject('Hailee Success');
+        });
+        promise.then((val)=>{
+            alert('Success:'+val)
+        }).catch((error)=>{
+            alert("Error:"+error)
+        })  //输出“Error:Hailee Success”,因为promise的状态已经从pending变成了rejected
+    </script>
+</body>
+</html>

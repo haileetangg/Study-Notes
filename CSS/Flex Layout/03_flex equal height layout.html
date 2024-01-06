@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 弹性盒子内部的子元素如果有盒子没有设置高度的话会根据最高的盒子等高 -->
+<style>
+    .container{
+        display: flex;
+    }
+    .box1{
+        width: 100px;
+        /* height: 100px; */
+        background-color: hotpink;
+    }
+    .box2{
+        width: 200px;
+        /* height: 200px; */
+        background-color: aquamarine;
+    }
+    .box3{
+        width: 300px;
+        height: 300px;
+        background-color: pink;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+</body>
+</html>

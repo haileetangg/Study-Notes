@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 使用HSL来表示颜色
+        HSL（Hue, Saturation, Lightness）,色相（Hue）、饱和度（Saturation）和亮度（Lightness）
+    */
+    .left > button {
+        background-color:  #0072b0 ;
+        border: 0;
+        color: white;
+        font-size: 1rem;
+        padding: .5em 1em;
+        transition: all;
+        transition-duration: .5s;
+        border-radius: 1em;
+    }
+    .left > button:hover {
+        background-color: hotpink;
+        font-size: 1.1em;
+    }
+    .right > button {
+        background-color: #0072b0;
+        border: 0;
+        color:  white;
+        font-size:  1em;
+        padding: .5em 1em;
+        transition: all;
+        transition-duration: .5s;
+        border-radius: 1em;
+    }
+    .right > button:active {
+        background-color: hotpink;
+        font-size: 1.1em;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="left">
+            <button>Hover over me</button>
+        </div>
+        <div class="right">
+            <button>Click on me</button>
+        </div>
+    </div>
+</body>
+</html>

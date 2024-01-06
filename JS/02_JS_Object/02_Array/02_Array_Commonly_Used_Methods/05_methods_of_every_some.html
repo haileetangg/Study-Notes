@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- every() 这个方法对于需要验证数组中每个元素是否都符合某种标准的情况特别有用
+         是否每个学生成绩都及格了，是否每个SKU都有库存,是否每个员工年龄都超过了18岁等，
+         符合条件就返回true！
+         some() 只要满足一个就行，这个班有学生考上了清华，有一个学生考试成绩700分
+    -->
+    <script>
+        let stuffs = [
+            {name:'bob',age:34},
+            {name:'hailee',age:25},
+            {name:'david',age:42}
+        ]
+        let result = stuffs.every((item,index,arr)=>{
+            return item.age>30
+        })
+       let result1 = stuffs.some((item,index,array)=>{
+            return item.age>40
+       })
+       console.log(result1,'---')
+    </script>
+</body>
+</html>

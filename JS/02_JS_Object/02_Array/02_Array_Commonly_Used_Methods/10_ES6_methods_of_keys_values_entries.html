@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = ['h','a','i','l','e','e']
+        let indexs = [];
+        let values = [];
+        let entries = [];
+        console.log(array.keys())
+        for(let i of array.keys()){
+            indexs.push(i)
+        }
+        console.log(indexs,'indexs') //[0, 1, 2, 3, 4, 5] 'indexs'
+        for(let i of array.values()){
+            values.push(i)
+        }
+        console.log(values,'values') //['h', 'a', 'i', 'l', 'e', 'e'] 'values'
+        for(let i of array.entries()){
+            entries.push(i)
+        }
+        console.log(entries,'entries') //[ [0, 'h'], [1, 'a'], [2, 'i'], [3, 'l'], [4, 'e'], [5, 'e']]
+    </script>
+</body>
+</html>

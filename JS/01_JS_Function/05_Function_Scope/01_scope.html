@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 在JS中，函数的作用域是在定义的时候就已经确定了，而不是在调用的时候,而且立即执行函数的this指向的是window
+        var a = 1;
+        function outer(){
+            console.log(this,this.a)
+            console.log(a);
+        }
+        // (function(func){
+        //     var a = 2;
+        //     func();
+        // })(outer);
+        function foo(func){
+            var a =2;
+            func()
+        }
+        foo(outer);
+    </script>
+</body>
+</html>

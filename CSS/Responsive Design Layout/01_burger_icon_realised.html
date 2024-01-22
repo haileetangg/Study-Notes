@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .menu-toggle {
+        position: relative;
+        border: 0;
+        background-color: transparent;
+        font-size: 3em;
+        width: 1em;
+        height: 1em;
+        line-height: .4;
+        text-indent: 5em;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .menu-toggle::after {
+        position: absolute;
+        display: block;
+        content:'\2261';
+        text-indent:0;
+        top: .2em;
+    }
+</style>
+<body>
+    <button class="menu-toggle">toggle menu</button>
+</body>
+</html>

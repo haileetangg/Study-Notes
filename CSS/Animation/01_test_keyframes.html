@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes over-and-back {
+        0%{
+            background-color: pink;
+            transform: translate(0);
+        }
+        50%{
+            background-color: hotpink;
+            transform: translate(300px,300px);
+        }
+        100%{
+            background-color: red;
+            transform: translate(600px,0);
+        }
+    }
+    .container{
+        width:200px;
+        height:200px;
+        animation: over-and-back 3s linear 3;
+    }
+</style>
+<body>
+    <div class="container"></div>
+</body>
+</html>

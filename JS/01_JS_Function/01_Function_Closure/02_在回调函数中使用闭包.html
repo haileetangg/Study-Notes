@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        position: relative;
+    }
+    #box1{
+        position: absolute;
+        background-color: pink;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<body>
+    <div id="box1">First Box</div>
+    <!-- <div id="box2">Second Box</div> -->
+</body>
+<script>
+    function animateIt( elementId ) {
+        var elem = document.getElementById(elementId);
+        var tick = 0;
+        // debugger
+        var timer = setInterval(()=>{
+            if(tick < 100) {
+                // debugger
+                elem.style.left = elem.style.top = tick+ 'px';
+                tick++;
+            }else{
+                clearInterval(timer);
+            }
+        },100)
+    }
+    animateIt('box1');
+    // animateIt('box2');
+</script>
+</html>

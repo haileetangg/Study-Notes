@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .title {
+        color: blue;
+        font-weight: 700;
+    }
+    @media (min-width: 15em) {
+        .title {
+            color: hotpink;
+            font-weight: 700;
+        }
+    }
+    @media (min-width: 25em) {
+        .title {
+            color: black;
+            font-weight: 700;
+        }
+    }
+</style>
+<body>
+    <div class="title" id="test">Frank Running Club</div>
+</body>
+<script>
+    var button = {
+	clicked: false,
+	click: function(){
+	this.clicked = true;
+    console.log(button.clicked,'this.clicked')
+    console.log(this,'this')
+	}
+}
+var ele = document.getElementById('test');
+ele.addEventListener('click',button.click)
+</script>
+</html>

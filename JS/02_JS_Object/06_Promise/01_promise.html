@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        new Promise((resolve,reject)=>{
+            var a = 1;
+            if(a < 0){
+                resolve('第一次执行成功了')
+            }else{
+                reject('执行失败了')
+            }
+        }).catch((e)=>{
+            console.log(a)
+            console.log(e)
+        })
+        .then((ele)=>{
+            console.log(ele,'then')
+            return '第二次执行成功了'
+        }).then((ele)=>{
+            console.log(ele,'.then...')
+            console.log('第三次正在执行了')
+        })
+    </script>
+</body>
+</html>

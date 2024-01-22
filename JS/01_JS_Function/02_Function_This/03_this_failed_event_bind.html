@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">Click me!</div>
+    <script>
+        // function Button() {
+        //     this.clicked = false;
+        //     this.click = ()=>{
+        //         this.clicked = true;
+        //         console.log(button.clicked,'the button has been clicked');
+        //         console.log(this,'this')  //button
+        //     }
+        //     this.click = function(){
+        //         this.clicked = true;
+        //         console.log(button.clicked,'the button has been clicked');
+        //         console.log(this,'this')  //<div id="test">Click me!</div>
+        //         console.log(this.clicked,'this.clicked')
+        //     }
+        // }
+        // var button = new Button();
+        // var elem = document.getElementById('test');
+        // elem.addEventListener('click',button.click);
+        var obj1 = {
+            clicked:false,
+            click: function(){
+                this.clicked = true;
+                console.log(this.clicked,this,'obj1')
+                return this;
+            }
+        }
+        var obj2 = {
+            clicked:false,
+            click: ()=>{
+                this.clicked = true;
+                console.log(this.clicked,this,'obj2')
+                return this;
+            }
+        }
+        var elem = document.getElementById('test');
+        elem.addEventListener('click',obj1.click);
+        console.log(obj1.click(),'obj1') //obj1
+        console.log(obj2.click(),'obj2') //window
+        
+    </script>
+</body>
+</html>

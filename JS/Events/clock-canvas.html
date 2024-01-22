@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制猫咪</title>
+</head>
+<body>
+    <canvas id="my-canvas" width="500" height="500">hailee's canvas</canvas>
+</body>
+<script>
+    var drawing = document.getElementById('my-canvas')
+    if(drawing.getContext){
+        var context = drawing.getContext('2d')
+        //开始路径
+        context.beginPath()
+        //绘制猫咪的脸
+        context.arc(100,100,50,0,2 * Math.PI,false)
+        context.fillStyle = "Orange"
+        context.fill()
+
+        //绘制猫咪的眼睛
+        context.beginPath()
+        context.arc(85,80,10,0,2* Math.PI,false)
+        context.arc(115,80,10,0,2* Math.PI,false)
+        context.fillStyle = 'White'
+        context.fill()
+
+        //绘制猫咪的瞳孔
+        context.beginPath()
+        context.arc(80,80,5,0,2* Math.PI,false)
+        context.arc(110,80,5,0,2* Math.PI,false)
+        context.fillStyle = 'Black'
+        context.fill()
+
+        //绘制鼻子
+        context.beginPath();
+        context.arc(100, 110, 5, 0, Math.PI * 2, true);
+        context.fillStyle = 'pink';
+        context.fill();
+
+        //绘制嘴巴
+        context.beginPath();
+        context.moveTo(90,120);
+        context.lineTo(100, 125);
+        context.lineTo(110, 120);
+        context.strokeStyle = 'black';
+        context.stroke();
+
+        // 绘制耳朵
+        // context.beginPath();
+        // context.moveTo(70, 60); // 左耳的顶点
+        // context.lineTo(100, 20); // 耳朵的最高点
+        // context.lineTo(80, 60); // 右耳的顶点
+        // context.closePath();
+        // context.fillStyle = 'black';
+        // context.fill();
+
+        // 绘制右耳
+        // context.beginPath();
+        // context.moveTo(130, 60); // 右耳的顶点
+        // context.lineTo(100, 20); // 耳朵的最高点
+        // context.lineTo(130, 60); // 左耳的顶点
+        // context.closePath();
+        // context.fillStyle = 'black';
+        // context.fill();
+    }
+</script>
+</html>

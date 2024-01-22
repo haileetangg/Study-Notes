@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="hailee-canvas" width="200" height="200">hailee's canvas</canvas>
+</body>
+<script>
+    var drawing = document.getElementById('hailee-canvas')
+    if(drawing.getContext){
+        var context = drawing.getContext('2d');
+        context.fillStyle = "Hotpink";
+        context.fillRect(10,10,60,60);
+        context.strokeStyle = "Pink";
+        context.strokeRect(10,10,60,60);
+
+        context.fillStyle = "Red";
+        context.fillRect(30,30,60,60);
+
+        context.clearRect(50,50,20,20);
+    }
+</script>
+</html>

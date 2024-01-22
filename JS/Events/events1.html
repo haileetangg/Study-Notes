@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button1">button1</button>
+    <button id="button2">button2</button>
+    <input type="text" id="input1">
+</body>
+<script>
+    var button1 = document.getElementById('button1')
+    var button2 = document.getElementById('button2')
+    var input1 = document.getElementById('input1')
+    button1.addEventListener('click',function(event){
+        console.log(event,event.clientX,'clientX',event.clientY,
+        'clientY',event.screenX,'screenX',event.screenY,'screenY','event')
+        alert(this.id)
+    })
+    button2.addEventListener('click',function(){
+        alert(this.id)
+    })
+    input1.addEventListener('keydown',function(event){
+        console.log(event,'event')
+    })
+    window.addEventListener('resize',function(event){
+        console.log(event,'resize-event')
+    })
+</script>
+</html>

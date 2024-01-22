@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getName(){
+            return this;
+        }
+        var obj = {
+            name:'小明',
+            age: 25,
+        }
+        console.log(getName())
+        console.log(getName.call(obj).name)
+    </script>
+</body>
+</html>

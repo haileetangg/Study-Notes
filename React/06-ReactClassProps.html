@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+<!-- 引入react核心库 -->
+<script src="./js/react.development.js"></script>
+<!-- 用于React操作Dom -->
+<script src="./js/react-dom.development.js"></script>
+<!-- 引入babel,将jsx转化为js -->
+<script src="./js/babel.min.js"></script>
+<!-- 引入props-type库，用于对props类型做限制 -->
+<script src="./js/prop-types.js"></script>
+<script type="text/babel">
+    class Animal extends React.Component{
+        static propTypes = {
+            name: PropTypes.string.isRequired, //name必须为string类型，并且需要必传的
+            age: PropTypes.number.isRequired //age必须为number类型，并且需要必传的
+        }
+        static defaultProps = {
+            nationality:'美国'
+        }
+        render(){
+            const {name,age,nationality,hobby} = this.props
+            return (
+                <div>我是{name},我今年{age + 1}岁了,我是{nationality}人,我的爱好是{hobby}</div>
+            )
+        }
+    }
+ReactDOM.render(<Animal name="Jerry" age={18} hobby="看电视剧"/>,document.getElementById('container'))
+</script>
+</html>

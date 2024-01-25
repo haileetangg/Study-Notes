@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<!-- 
+    高阶函数：
+        type1：若A函数接收一个参数是一个函数,A就是一个高阶函数
+        type2: 若A函数返回一个函数,A就是一个高阶函数
+        常见的高阶函数: Promise、setTimeOut、[].map(),[].filter()等等
+ -->
+<script>
+    function sum(a){
+        return (b)=>{
+            return (c)=>{
+                return a + b + c
+            }
+        }
+    }
+    let result = sum(1)(2)(3)
+    console.log(result,'result')
+</script>
+</html>

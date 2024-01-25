@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+<!-- 引入react核心库 -->
+<script src="./new_js/react.development.js"></script>
+<!-- 用于React操作Dom -->
+<script src="./new_js/react-dom.development.js"></script>
+<!-- 引入babel,将jsx转化为js -->
+<script src="./js/babel.min.js"></script>
+<!-- 
+    1.初始化阶段: 由ReactDOM.render()触发 --初次渲染
+            1. constructor()
+            2. getDerivedStateFromProps
+            3. render()
+            4. componentDidMount()   ==>常用的生命周期钩子
+            一般在这个生命周期钩子中做一些初始化的事情,例如：开启定时器、发送网络请求、订阅消息
+
+    2.更新阶段: 由组件内部this.setState()或父组件render()触发
+            1. getDerivedStateFromProps
+            2. shouldComponentUpdate()
+            3. render()   ==>常用
+            4. getSnapshotBeforeUpdate()
+            5. ComponentDidUpdate()
+
+    3.卸载组件: 由ReactDOM.unmountComponentAtNode()触发
+            1. componentWillUnmount()   ==>常用
+            一般在这个生命周期钩子中做一些初始化的事情,例如：关闭定时器、取消消息订阅
+
+ -->
+<script type="text/babel">
+    class Papa extends React.Component {
+        state = {
+            papaName:'Mr.Tang',
+            kidsName:'Hailee'
+        }
+        constructor(props){
+            super(props)
+            console.log('constructor, --Papa')
+        }
+        changeName = () => {
+            const {kidsName } = this.state
+            this.setState({kidsName:'DOROTHY'})
+        }
+        toDeath = () => {
+            ReactDOM.unmountComponentAtNode(document.getElementById('container'))
+        }
+        // componentWillMount(){
+        //     console.log('componentWillMount, --Papa将要出生了')
+        // }
+        static getDerivedStateFromProps(props,state){
+            console.log(props,state,'props,state')
+            console.log('getDerivedStateFromProps  --Papa')
+            return null
+        }
+        componentDidMount(){
+            console.log('componentWillMount, --Papa已经出生了')
+        }
+        //卸载组件
+        componentWillUnmount(){
+            console.log('componentWillUnmount, --Papa快要死了')
+            this.toDeath()
+        }
+        render(){
+            console.log('Papa Render, --need to render')
+            return (
+                <div>
+                    <div>Hello,everyone,my name is {this.state.papaName}</div>
+                    <button onClick={this.changeName}>改变状态</button>
+                    <Kids kidsName={this.state.kidsName}/>
+                    <button onClick={this.toDeath}>父亲跟孩子生命终结了</button>
+                </ div>
+            )
+        }
+    }
+    class Kids extends React.Component {
+        state = {age:10}
+        static getDerivedStateFromProps(props,state){
+            console.log(props,state,'props,state')
+            console.log('Kids --- getDerivedStateFromProps--')
+            return null
+        }
+        shouldComponentUpdate(){
+            console.log('kids  --shouldComponentUpdate')
+            return true
+        }
+        getSnapshotBeforeUpdate(preProps,preState){
+            console.log('getSnapshotBeforeUpdate ---Kids')
+            return document.getElementById('container').clientHeight
+        }
+        componentDidUpdate(preProps,preState,snapshot){
+            console.log('ccomponentDidUpdate')
+            console.log('kids  --componentDidUpdate')
+        }
+        render(){
+            console.log('kids  --render')
+            return (
+                <div>hello,I'm {this.props.kidsName}</div>
+            )
+        }
+    }
+    ReactDOM.render(<Papa />,document.getElementById('container'))
+</script>
+</html>

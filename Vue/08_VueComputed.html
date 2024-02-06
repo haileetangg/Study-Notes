@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computed</title>
+  <script src="./js/vue.js"></script>
+</head>
+<!-- 
+    计算属性：
+      1.定义：要用的属性不存在，要通过已有的属性计算得来
+      2.原理：底层要借助 Object.defineProperty 方法提供的 getter 和 setter
+      3.get函数什么时候执行？
+        1）初次读取时会执行一次
+        2）当依赖发生变化时会再次被调用
+      4.优势：与mothods实现相比，内部有缓存机制（可以复用），效率高，调试方便。
+      5.备注：
+        1）计算属性最终会出现在vm身上，直接读取就就可以使用
+        2）如果计算属性要被修改，那必须要写setter去响应修改，且set中要引起计算时依赖的数据发生变化
+ -->
+<body>
+  <!-- 准备好一个容器 -->
+  <div id="root">
+    姓：<input type="text" v-model="firstName"/> <br/><br/>
+    名：<input type="text" v-model="lastName"/> <br/><br/>
+    全名：<span>{{fullName}}</span>
+  </div>
+</body>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data:{
+      firstName:'张',
+      lastName:'三'
+    },
+    computed:{
+      // 完整写法
+    //   fullName:{
+    //     //get有什么作用？ 当有人读取fullName时，get就会被调用，且返回值就作为fullName的值
+    //     //get什么时候调用？
+    //     // 1.初次读取fullName的时候  2.所依赖的数据发生了变化
+    //     get(){
+    //       return this.firstName + '-' + this.lastName
+    //     },
+    //     //set什么时候调用？
+    //     // 当fullName被修改时调用
+    //     set(value){
+    //       let arr = value.split('-')
+    //       this.firstName = arr[0]
+    //       this.lastName = arr[1]
+    //     }
+    //   }
+      fullName(){
+        return this.firstName + '-' + this.lastName
+      }
+    }
+  })
+</script>
+</html>

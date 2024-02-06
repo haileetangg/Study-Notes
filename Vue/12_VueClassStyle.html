@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<style>
+  .normal {
+    background-color: lightgray;
+    border-radius: 10px;
+    padding:10px;
+    width: 300ox;
+    height: 80px;
+  }
+  .fabulous{
+    background-color: hotpink;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+  }
+  .danger{
+    color: red;
+  }
+  .yellow{
+    background-color: yellow;
+    color:grey;
+  }
+</style>
+<body>
+    <!-- 
+        绑定样式
+          1.class样式
+            写法：class="xxx" xxx可以是字符串、数组、对象
+              字符串写法适用于：类名不确定要动态获取
+              数组写法适用于：要绑定多个样式，个数确定，名字也确定，但是不确定用不用
+              对象写法适用于：要绑定多个样式，个数不确定，名字也不确定
+          2.style样式
+            ：style=“{fontSize:xxx}”其中xxx是动态值
+            ：style=“[a,b]”，其中a.b是样式对象
+            
+     -->
+  <div id="root">
+    <!-- 绑定class样式 --字符串写法，适用于：样式的类名不确定，需要动态指定 -->
+    <h1 class="normal" :class="mood">{{name}}</h1><br/><br/>
+
+    <!-- 绑定class样式 --数组写法，适用于：要绑定的样式个数不确定、名字也不确定 -->
+    <h1 class="normal" :class="classArr">dangerous!!</h1><br/><br/>
+
+    <!-- 绑定class样式 --对象写法，适用于：要绑定的样式个数确定、但是要动态决定用不用 -->
+    <h1 class="normal" :class="classObj">{{name}}</h1><br/><br/>
+
+    <!-- 绑定style样式 --对象写法 -->
+    <h1 class="normal" :style="styleObj">{{name}}</h1><br/><br/>
+
+    <!-- 绑定style样式 --数组写法 -->
+    <h1 class="normal" :style="styleArr">{{name}}</h1>
+
+  </div>
+</body>
+<script>
+  const vm = new Vue({
+    el:'#root',
+    data:{
+      name:'hailee',
+      mood:'fabulous',
+      classArr:['danger','warning'],
+      classObj:{
+        yellow:true,
+        blue:false,
+      },
+      styleObj:{fontSize:'30px',color:'hotPink'},
+      styleArr:[
+      {fontSize:'30px',color:'hotPink'},
+      {backgroundColor:'red'}
+      ]
+    }
+  })
+</script>
+</html>

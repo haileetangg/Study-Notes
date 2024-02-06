@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueTemplateGrammars</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        Vue模版语法有2大类：
+          1.插值语法
+            功能：用于解析标签体内容
+            写法：{{xxx}},xxx是js表达式，可以从data里面直接读取所有的属性
+          2.指令语法
+            功能：用于解析标签（包括：标签属性、标签体内容、绑定事件...）
+            写法：v-bind:href="xxx",或者简写为 :href="xxx"
+     -->
+     <!-- 
+        Vue中的2种数据绑定方式：
+          1.单向绑定（v-bind）:数据只能从data流向页面
+          2.双向绑定 (V-model）:数据不仅能从data流向页面，也能从页面流向data
+            备注：
+              1.双向绑定一般都应用在表单类元素上（如：input、select等）
+              2.v-model:value 可以简写为 v-model,因为v-model默认收集的就是value值
+      -->
+  <div id="root">
+    <div>hello,我是{{name}},我即将要去<a v-bind:href="url">尚硅谷</a>学习IT技术啦</div>
+  </div>
+</body>
+<script type="text/javascript">
+  Vue.config.productionTip = false //阻止vue在启动时生成生产提示
+  new Vue({
+    el:'#root',
+    data:{
+      name:'hailee',
+      age: 25,
+      url:"http://www.atguigu.com"
+    }
+  })
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueTemplateGrammars</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+    MVVM模型
+        1.M：模型（Model）：data中的数据
+        2.V:视图（View）：模版代码
+        3.VM：视图模型（ViewModel）：Vue实例
+    观察发现：
+        1.data中所有属性最后都出现在了vm身上
+        2.vm身上所有的属性及Vue原型上的所有属性在Vue模版中都可以使用
+     -->
+  <div id="root">
+    <div>hello,我是{{name}},我即将要去<a v-bind:href="url">尚硅谷</a>学习IT技术啦</div>
+  </div>
+</body>
+<script type="text/javascript">
+  Vue.config.productionTip = false //阻止vue在启动时生成生产提示
+// 写法一：
+//   new Vue({
+//     el:'#root',
+//     data:{
+//       name:'hailee',
+//       age: 25,
+//       url:"http://www.atguigu.com"
+//     }
+//   })
+// 写法二：
+const vm = new Vue({
+    data(){
+      return{
+        name:'hailee',
+        age: 25,
+        url:"http://www.atguigu.com"
+      }
+    }
+  })
+  vm.$mount('#root')
+
+</script>
+</html>

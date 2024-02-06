@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheFirstSightOfVue</title>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+<!-- 引入Vue，在全局就会多一个Vue的构造函数 -->
+<script src="./js/vue.js">
+  Vue.config.productionTip = false //阻止vue在启动时生成生产提示
+  //创建Vue实例,{}这个为配置对象
+  const x = new Vue({
+    el:'#root', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+    data:{  //data中用于存储数据，数据供el使用
+      name:'hailee',
+      age:18
+    }
+  })
+</script>
+</html>

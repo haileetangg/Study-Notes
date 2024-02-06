@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<style>
+    .normal {
+    background-color: hotpink;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300ox;
+    height: 80px;
+  }
+</style>
+<body>
+    <!-- 
+        v-for指令
+          1.用于展示列表数据
+          2.语法：v-for=”(item,index) in xxx“ :key="yyy"
+          3.可遍历：数组、对象、字符串（用的很少）、指定次数（用的很少）
+     -->
+  <div id="root">
+    <div class="normal">
+      <!-- 遍历一个数组 -->
+      <ul>
+        <li v-for="(p,index) of persons" :key="index">
+          {{p.name}} -- {{p.age}}
+        </li>
+      </ul>
+    </div><br/><br/>
+    <div class="normal">
+        <!-- 遍历一个对象 -->
+        <ul>
+            <li v-for="(value,key) of car" :key="key">
+                {{value}} -- {{key}}
+            </li>
+        </ul>
+    </div><br/><br/>
+    <div class="normal" :style="getHigh">
+        <!-- 遍历一个字符串 -->
+        <ul>
+            <li v-for="(char,index) of name" :key="index">
+                {{char}} -- {{index}}
+            </li>
+        </ul>
+    </div><br/><br/>
+    <div class="normal" :style="getHigh">
+        <!-- 遍历指定次数 -->
+        <ul>
+            <li v-for="(number,index) of 6" :key="index">
+                {{number}} -- {{index}}
+            </li>
+        </ul>
+    </div>
+  </div>
+</body>
+<script>
+  const vm = new Vue({
+    el:'#root',
+    data:{
+      getHigh:{height:'150px'},
+      persons:[
+        {name:'hailee',age:15,id:'001'},
+        {name:'david',age:24,id:'004'},
+        {name:'chris',age:26,id:'003'}
+      ],
+      car:{
+        brand:'benz',
+        price:100
+      },
+      name:'hailee'
+    }
+  })
+</script>
+</html>

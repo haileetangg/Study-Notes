@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/vue.js"></script>
+</head>
+<style>
+    .normal {
+    background-color: hotpink;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300ox;
+    height: 300px;
+  }
+</style>
+<body>
+  <div id="root">
+    <div class="normal">
+        <h1>人员列表（遍历数组）</h1>
+        <!-- 遍历一个数组 -->
+        <input type="text" placeholder="请输入查询条件" v-model="keyWord">
+        <ul>
+          <li v-for="(p,index) of filPersons" :key="p.id">
+            {{p.name}} -- {{p.age}}
+          </li>
+        </ul>
+      </div><br/><br/>
+  </div>
+</body>
+<script>
+  Vue.config.productionTip = false
+  //用watch来实现模糊匹配
+//   const vm = new Vue({
+//     el:"#root",
+//     data:{
+//       keyWord:'',
+//       persons:[
+//         {id:'001',name:'马东梅',age:20},
+//         {id:'002',name:'周冬雨',age:40},
+//         {id:'003',name:'周杰伦',age:35},
+//         {id:'004',name:'温兆伦',age:35}
+//       ],
+//       filPersons:[]
+//     },
+//     watch:{
+//     //   keyWord(newValue){
+//     //     this.filPersons = this.persons.filter((p)=>{
+//     //     //   return p.name.indexOf(newValue) !== -1
+//     //       return p.name.includes(newValue)
+//     //     })
+//     //   }
+//     keyWord:{
+//       immediate:true,
+//       handler(newVal){
+//         this.filPersons = this.persons.filter((p)=>{
+//           return p.name.includes(newVal)
+//         })
+//       }
+//     }
+//     }
+//   })
+//用computed实现
+const vm = new Vue({
+    el:'#root',
+    data:{
+      keyWord:'',
+      persons:[
+        {id:'001',name:'马东梅',age:20},
+        {id:'002',name:'周冬雨',age:40},
+        {id:'003',name:'周杰伦',age:35},
+        {id:'004',name:'温兆伦',age:35}
+      ]
+    },
+    computed:{
+      filPersons(){
+        return this.filPersons = this.persons.filter((p)=>{
+          return p.name.indexOf(this.keyWord) !== -1
+        //   return p.name.includes(this.keyWord)
+        })
+      }
+    }
+})
+</script>
+</html>

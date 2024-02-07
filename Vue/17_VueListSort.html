@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/vue.js"></script>
+</head>
+<style>
+    .normal {
+    background-color: hotpink;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300ox;
+    height: 300px;
+  }
+</style>
+<body>
+  <div id="root">
+    <div class="normal">
+        <h1>人员列表（遍历数组）</h1>
+        <!-- 遍历一个数组 -->
+        <input type="text" placeholder="请输入查询条件" v-model="keyWord">
+        <button @click="sortType = 2">年龄升序</button>
+        <button @click="sortType = 1">年龄降序</button>
+        <button @click="sortType = 0">原顺序</button>
+        <ul>
+          <li v-for="(p,index) of filPersons" :key="p.id">
+            {{p.name}} -- {{p.age}}
+          </li>
+        </ul>
+      </div><br/><br/>
+  </div>
+</body>
+<script>
+  Vue.config.productionTip = false
+  //用watch来实现模糊匹配
+//   const vm = new Vue({
+//     el:"#root",
+//     data:{
+//       keyWord:'',
+//       persons:[
+//         {id:'001',name:'马东梅',age:20},
+//         {id:'002',name:'周冬雨',age:40},
+//         {id:'003',name:'周杰伦',age:35},
+//         {id:'004',name:'温兆伦',age:35}
+//       ],
+//       filPersons:[]
+//     },
+//     watch:{
+//     //   keyWord(newValue){
+//     //     this.filPersons = this.persons.filter((p)=>{
+//     //     //   return p.name.indexOf(newValue) !== -1
+//     //       return p.name.includes(newValue)
+//     //     })
+//     //   }
+//     keyWord:{
+//       immediate:true,
+//       handler(newVal){
+//         this.filPersons = this.persons.filter((p)=>{
+//           return p.name.includes(newVal)
+//         })
+//       }
+//     }
+//     }
+//   })
+//用computed实现
+const vm = new Vue({
+    el:'#root',
+    data:{
+      keyWord:'',
+      sortType: 0,
+      persons:[
+        {id:'001',name:'马东梅',age:20},
+        {id:'002',name:'周冬雨',age:40},
+        {id:'003',name:'周杰伦',age:35},
+        {id:'004',name:'温兆伦',age:35}
+      ]
+    },
+    computed:{
+      filPersons(){
+        const arr = this.persons.filter((p)=>{
+          return p.name.indexOf(this.keyWord) !== -1
+        })
+        if(this.sortType){
+          arr.sort((p1,p2)=>{
+            return this.sortType === 1? p2.age - p1.age : p1.age - p2.age
+          })
+        }
+        return arr
+      }
+    }
+})
+</script>
+</html>

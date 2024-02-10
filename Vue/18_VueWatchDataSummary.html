@@ -9,9 +9,17 @@
 <body>
   <div id="root">
     <h1>学生信息</h1>
-    <button @click="student.age++">年龄+1</button>
+    <button @click="student.age++">年龄+1</button><br />
+    <button @click="addSex">添加性别属性，默认值：男</button><br />
+    <button @click=" student.sex='未知' ">修改性别</button><br />
+    <button @click="addFriend">在列表首页添加一个朋友</button><br />
+    <button>修改第一个朋友的名字为：张三</button><br />
+    <button>添加一个爱好</button><br />
+    <button>修改第一爱好为：开车</button><br />
+
     <h3>姓名：{{student.name}}</h3>
     <h3>年龄：{{student.age}}</h3>
+    <h3>性别：{{student.sex}}</h3>
     <h3>爱好：</h3>
     <ul>
       <li v-for="(h,index) in student.hobby" :key="index">
@@ -39,6 +47,15 @@
           {name:'tony', age:36}
       ]
      }
+    },
+    methods:{
+      addSex(){
+        // Vue.set(this.student,'sex','男')
+        this.$set(this.student,'sex','男')
+      },
+      addFriend(){
+        this.student.friends.unshift({name:'david',age:30})
+      }
     }
   })
 </script>

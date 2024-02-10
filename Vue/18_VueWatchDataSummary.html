@@ -7,19 +7,37 @@
     <script src="./js/vue.js"></script>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <h1>学生信息</h1>
+    <h3>姓名：{{student.name}}</h3>
+    <h3>年龄：{{student.age}}</h3>
+    <h3>爱好：</h3>
+    <ul>
+      <li v-for="(h,index) in student.hobby" :key="index">
+        {{h}}
+      </li>
+    </ul>
+    <h3>朋友们：</h3>
+    <ul>
+      <li v-for="(f,index) in student.friends" :key="index">
+        {{f.name}}--{{f.age}}
+      </li>
+    </ul>
+  </div>
 </body>
 <script>
   const vm = new Vue({
     el:'#root',
     data:{
-      name:'tom',
-      age:18,
-      hobby:['抽烟','喝酒','烫头'],
-      friends:[
-        {name:'jerry',age:35},
-        {name:'tony', age:36}
+      student:{
+        name:'tom',
+        age:18,
+        hobby:['抽烟','喝酒','烫头'],
+        friends:[
+          {name:'jerry',age:35},
+          {name:'tony', age:36}
       ]
+     }
     }
   })
 </script>

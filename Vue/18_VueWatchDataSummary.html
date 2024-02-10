@@ -6,6 +6,26 @@
     <title>Document</title>
     <script src="./js/vue.js"></script>
 </head>
+<!-- 
+  Vue监视数据的原理：Vue能够监测到data数据里面所有层级的数据
+    1. Vue监测对象中的数据：
+      1）通过setter进行监视，且要在new Vue的时候就传入要监测的数据
+      2）对象中后添加的属性vue默认不做响应式处理
+      3）如果需要给后添加的属性做响应式，可以使用下面的API:
+        Vue.set(target,protertyName/index,value)或
+        vm.$set(target,protertyName/index,value)
+
+    2.Vue监测对象中的数据
+      1）通过包裹数组更新元素的方法实现，本质就是做了两件事。
+      2）调用原生对应的方法对数组进行更新
+      3）重新解析模版，进而更新页面
+    
+    3.Vue修改数组中的某个元素一定要用如下方法：
+      1）使用如下API:unshift()、shift()、push()、pop()、splice()、sort()、reverse()
+      2)Vue.set()或vm.$set()
+    
+    特别注意：Vue.set()和vm.$set(),不能给vm或vm的根数据对象添加属性
+ -->
 <body>
   <div id="root">
     <h1>学生信息</h1>
@@ -13,9 +33,9 @@
     <button @click="addSex">添加性别属性，默认值：男</button><br />
     <button @click=" student.sex='未知' ">修改性别</button><br />
     <button @click="addFriend">在列表首页添加一个朋友</button><br />
-    <button>修改第一个朋友的名字为：张三</button><br />
-    <button>添加一个爱好</button><br />
-    <button>修改第一爱好为：开车</button><br />
+    <button @click="updateFristFriendName">修改第一个朋友的名字为：张三</button><br />
+    <button @click="addHobby">添加一个爱好</button><br />
+    <button @click="updateFristhobby">修改第一爱好为：开车</button><br />
 
     <h3>姓名：{{student.name}}</h3>
     <h3>年龄：{{student.age}}</h3>
@@ -55,6 +75,18 @@
       },
       addFriend(){
         this.student.friends.unshift({name:'david',age:30})
+      },
+      updateFristFriendName(){
+        // this.student.friends[0].name = '张三'
+        this.student.friends[0].name = '张三'
+      },
+      addHobby(){
+        this.student.hobby.push('学习')
+      },
+      updateFristhobby(){
+        // this.student.hobby.splice(0,1,'开车')
+        // this.$set(this.student.hobby,0,'开车')
+        Vue.set(this.student.hobby,0,'吃饭')
       }
     }
   })

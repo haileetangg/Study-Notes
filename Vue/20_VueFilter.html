@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="./js/vue.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.9/dayjs.min.js"></script>
   <!-- 
     过滤器：
        定义：对要显示的数据进行特定格式化后再显示（适用于一些简单逻辑的处理）
@@ -19,7 +20,40 @@
 <body>
   <div id="root">
     <h2>显示格式化后的时间</h2>
-    <!-- <h2>现在是：{{fmtTime}}</h2> -->
+    <!-- 用计算属性实现 -->
+    <h3>现在是：{{fmtTime}}</h2>
+    <!-- 用methods实现 -->
+    <h3>现在是：{{getFmtTime()}}</h2>
+    <!-- 过滤器实现 -->
+    <h3>现在是：{{timestamp | timestampFormatter}}</h2>
+    <h3>现在是：{{timestamp | timestampFormatter('YYYY-MM-DD')}}</h2>
+    <h3>现在是：{{timestamp | timestampFormatter('YYYY-MM-DD') | mySlice }}</h2>
   </div>
 </body>
+<script>
+  new Vue({
+    el:'#root',
+    data:{
+      timestamp:1707917653261
+    },
+    computed:{
+      fmtTime(){
+        return dayjs(this.timestamp).format("YYYY年MM月DD日 HH:mm:ss")
+      }
+    },
+    methods:{
+      getFmtTime(){
+        return dayjs(this.timestamp).format("YYYY年MM月DD日 HH:mm:ss")
+      }
+    },
+    filters:{
+      timestampFormatter(value,str='YYYY年MM月DD日 HH:mm:ss'){
+        return dayjs(value).format(str)
+      },
+      mySlice(value){
+        return value.slice(0,4)
+      }
+    }
+  })
+</script>
 </html>

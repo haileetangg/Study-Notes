@@ -23,7 +23,7 @@
  -->
 <body>
   <div id="root">
-    <form >
+    <form @submit.prevent="demo">
       账号：<input type="text" v-model="userInfo.account"><br /><br />
       密码：<input type="password" v-model="userInfo.password"><br /><br />
       年龄：<input type="number" v-model.number="userInfo.age"><br /><br />
@@ -61,6 +61,11 @@
         city:'beijing',
         others:'',
         agree:'',
+      }
+    },
+    methods:{
+      demo(){
+        console.log(JSON.stringify(this.userInfo))
       }
     }
   })

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../00_Js/vue.js"></script>
+    <!-- 
+        需求：定义一个v-focusBind指令，和v-bind功能类似，但可以让其绑定的input元素默认获取焦点
+     -->
+</head> 
+<body>
+ <div id="root">
+    <input type="text" v-focusbind:value="age">
+ </div>
+</body>
+<script>
+    new Vue({
+      el:'#root',
+      data:{
+        name:'Hailee',
+        age:25
+      },
+      directives:{
+        focusbind:{
+          //指令与元素成功绑定时调用（一上来就调用）
+          bind(element,binding){
+            element.value = binding.value
+          },
+          //指令所在的元素刚插入页面时调用
+          inserted(element,binding){
+            element.focus()
+          },
+          //指令所在的模版重新解析时
+          update(element,binding){
+            element.value = binding.value
+          }
+        }
+      }
+    })
+</script>
+</html>

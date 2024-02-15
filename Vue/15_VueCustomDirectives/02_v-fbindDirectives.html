@@ -9,12 +9,12 @@
         需求：定义一个v-focusBind指令，和v-bind功能类似，但可以让其绑定的input元素默认获取焦点
      -->
      <!-- 
-        
+
         自定义指令总结：
           (1)定义语法：
             1)局部指令
               new Vue({
-                directives:{指令名：配置对象} 或 new Vue({directives(){}})
+                directives:{指令名：配置对象} 或 new Vue({directives{指令名：回调函数}})
               })
             2)全局指令
               Vue.directive(指令名，配置对象) 或 Vue.directive(指令名，回调函数)

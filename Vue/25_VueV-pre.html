@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<!-- 
+    v-pre指令：
+        1）跳过其所在节点的编译过程
+        2）可；利用它跳过没有使用指令、没有使用插值语法的节点，会加快编译
+ -->
+<body>
+    <div id="root">
+        <h1>Vue其实很简单</h1>
+        <h2 v-pre>当前的n值为{{n}}</h2>
+        <button  @click="n++">点我n+1</button>
+    </div>
+</body>
+<script>
+    new Vue({
+      el:'#root',
+      data:{
+        n:100
+      }
+    })
+</script>
+</html>

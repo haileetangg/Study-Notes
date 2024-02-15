@@ -8,12 +8,12 @@
 </head>
 <!-- 
     指令不能脱离元素存在
-    需求1: 定义一个v-big指令，和v-text功能相似，但会把绑定的数值放大10倍
+    需求1: 定义一个v-big-number指令，和v-text功能相似，但会把绑定的数值放大10倍
  -->
 <body>
     <div id="root">
         <h2>当前的n值为：<span v-text="n+1"></span></h2>
-        <h2>放大10倍后的n值为：<span v-big="n+1"></span></h2>
+        <h2>放大10倍后的n值为：<span v-big-number="n+1"></span></h2>
     </div>
 </body>
 <script>
@@ -26,7 +26,7 @@
         // 调用时机？
         //   1）指令与元素成功绑定时会调用一次
         //   2）指令所在的模版被重新解析时
-        big(element,binding){
+        'big-number'(element,binding){
             element.innerHTML = binding.value * 10
         }
       }

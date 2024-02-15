@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/vue.js"></script>
+</head>
+<!-- 
+    v-cloak指令（没有值）：
+      1）本质上是一个特殊的属性，Vue实例创建完毕并接管该容器后会删掉v-cloak属性
+      2）使用css配合v-cloak可以解决网速慢时页面展示出{{xxx}}的问题
+ -->
+<body>
+  <div id="root">
+    {{name}}
+  </div>
+</body>
+<script>
+  new Vue({
+    el:'#root',
+    data:{
+      name:'hailee'
+    }
+  })
+</script>
+</html>

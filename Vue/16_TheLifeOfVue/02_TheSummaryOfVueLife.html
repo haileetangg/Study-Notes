@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../00_Js/vue.js"></script>
+</head>
+<!-- 
+    生命周期：
+      1.又名：生命周期函数、生命周期回调函数，生命周期钩子
+      2.是什么：vue在一些关键时刻帮我们调用的一些特殊名称的函数
+      3.生命周期钩子的名称不可更改
+      4.生命周期函数中的this指向是vm或组件实例对象
+ -->
+<body>
+  <div id="root">
+    <h3 :style="{opacity}">你好，我是Hailee</h3>
+    <button @click="opacity = 1">透明度设置为1</button>
+    <button @click="stop">点我停止变换</button>
+  </div>
+</body>
+<!-- 
+    常用的生命周期钩子：
+      1. mounted：发送ajax请求，启动定时器、绑定自定义事件、订阅消息等【初始化操作】
+      2. beforeDestory：清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】
+
+    关于销毁BVue实例：
+      1.销毁后借助Vue开发者看不到任何信息
+      2.销毁后自定义事件会失效，但原生DOM事件依然有效
+      3.一般不会在beforeDestory操作数据，因为不会再触发更新流程了
+ -->
+<script>
+    new Vue({
+      el:'#root',
+      data:{
+        opacity:1
+      },
+      methods:{
+        stop(){
+        //   clearInterval(this.timer)
+          this.$destory()
+        }
+      },
+      mounted(){
+        this.timer = setInterval(()=>{
+            this.opacity -= 0.1
+            if(this.opacity <= 0) this.opacity = 1
+        },50)
+      },
+      beforeDestroy() {
+        clearInterval(this.timer)
+      },
+    })
+</script>
+</html>

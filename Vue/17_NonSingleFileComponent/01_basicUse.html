@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../00_Js/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    <Person/>
+    <Car/>
+  </div>
+</body>
+<script>
+  const Person = {
+    template:`
+      <div>
+        <h2>我的名字叫：{{name}},</h2>
+        <h2>我今年：{{age}}岁了,</h2>
+      </div>`,
+    data(){
+      return {
+        name:'hailee',
+        age:25
+      }
+    }
+  };
+  const Car = {
+    template:`
+      <div>
+        <h2>我有一辆{{name}}</h2>
+      </div>`,
+    data(){
+      return {
+        name:'帕拉梅拉',
+      }
+    }
+  };
+  new Vue({
+    el:'#root',
+    components:{
+        Person,
+        Car
+    }
+
+  })
+</script>
+</html>

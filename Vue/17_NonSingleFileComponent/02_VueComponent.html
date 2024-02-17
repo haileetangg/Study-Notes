@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../00_Js/vue.js"></script>
+</head>
+<!-- 
+    关于VueComponent
+      1)Hobby组件本质上是一个名为Component的构造函数，且不是程序员定义的，是Vue.extend生成的
+      
+      2）Vue解析时会帮我们创建Hobby组件的实例对象，即通过new VueComponent(options)的方式创建
+
+      3）每次调用Vue.extend，返回的都是一个全新的VueComponent
+
+      4)关于this指向：
+        （1）组件配置中：
+            data函数、methods中的函数、computed中的函数，它们的this指向均是【VueComponent实例对象】
+        （2）new Vue(options)配置中：
+            data函数、methods中的函数、computed中的函数，它们的this指向均是【Vue实例对象】
+            
+      5)Vue实例对象简称vm，组件实例对象简称vc
+ -->
+<body>
+  <div id="root">
+    <Person/>
+    <Car/>
+  </div>
+</body>
+<script>
+  const Hobby = {
+    template:`
+      <div>
+        <h2>我的爱好有：{{hobbies}},</h2>
+      </div>`,
+    data(){
+      return {
+        hobbies:'唱歌，写代码',
+      }
+    },
+  }
+  const Person = {
+    template:`
+      <div>
+        <h2>我的名字叫：{{name}},</h2>
+        <h2>我今年：{{age}}岁了,</h2>
+        <Hobby />
+      </div>`,
+    data(){
+      return {
+        name:'hailee',
+        age:25
+      }
+    },
+    components:{
+      Hobby
+    }
+  };
+  const Car = {
+    template:`
+      <div>
+        <h2>我有一辆{{name}}</h2>
+      </div>`,
+    data(){
+      return {
+        name:'帕拉梅拉',
+      }
+    }
+  };
+  new Vue({
+    el:'#root',
+    components:{
+        Person,
+        Car
+    }
+
+  })
+</script>
+</html>

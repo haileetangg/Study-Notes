@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../00_Js/vue.js"></script>
+</head>
+<!-- 
+    1. 一个重要的内置关系：VueComponent.prototype.__proto__ === Vue.prototype
+    2. 可以让组件实例访问到Vue原型上的属性跟方法
+ -->
+<body>
+  <div id="root">
+    <Person/>
+    <Car/>
+  </div>
+</body>
+<script>
+  Vue.prototype.b = 15
+  const Hobby = {
+    template:`
+      <div>
+        <h2>我的爱好有：{{hobbies}},</h2>
+      </div>`,
+    data(){
+      return {
+        hobbies:'唱歌，写代码',
+      }
+    },
+  }
+  const Person = {
+    template:`
+      <div>
+        <h2>我的名字叫：{{name}},</h2>
+        <h2>我今年：{{age}}岁了,</h2>
+        <h2>{{b}}</h2>
+        <Hobby />
+      </div>`,
+    data(){
+      return {
+        name:'hailee',
+        age:25
+      }
+    },
+    components:{
+      Hobby
+    }
+  };
+  const Car = {
+    template:`
+      <div>
+        <h2>我有一辆{{name}}</h2>
+      </div>`,
+    data(){
+      return {
+        name:'帕拉梅拉',
+      }
+    }
+  };
+  const vm = new Vue({
+    el:'#root',
+    components:{
+        Person,
+        Car
+    }
+  })
+</script>
+</html>

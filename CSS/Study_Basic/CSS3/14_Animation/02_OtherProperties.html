@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation_Other_Properties</title>
+<style>  
+  .outer {
+    width:1000px;
+    height:100px;
+    border: 2px solid pink;
+  }
+  /* 两种定义方式 */
+  @keyframes xiangyouyi {
+    from {
+      background-color: black;
+    }
+    to {
+      transform: translate(900px);
+      background-color: aquamarine;
+    }
+  }
+  @keyframes xiangyouyi1 {
+    0% {
+      background-color: pink;  
+    }
+    50% {
+      background-color: blue;
+    }
+    100% {
+      transform: translate(900px);
+      background-color: green;
+    }
+  }
+  .inner{
+    width:100px;
+    height:100px;
+    background-color: black;
+    /****** 3个基本的属性 ********/
+    /* 应用动画到元素 */
+    animation-name: xiangyouyi1;
+    /* 动画持续的时间，两个缺一不可 */
+    animation-duration: 3s;
+    /* 动画延迟的时间 */
+    animation-delay: 0.2s;
+
+    /* *****其他属性****** */
+
+    /* 设置动画的方式 */
+    animation-timing-function: linear;
+    
+    /* 动画的播放次数 */
+    animation-iteration-count: infinite;
+
+    /* 动画的方向 */
+    animation-direction: alternate;
+
+    /* 动画以外的状态（不发生动画的时候在哪里） */
+    animation-fill-mode: forwards;
+  }
+  .outer:hover .inner{
+    /* 动画的播放状态 */
+    animation-play-state: paused;
+  }
+</style>
+</head>
+<body>
+  <div class="outer">
+    <div class="inner"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">button</button>
+</body>
+<script>
+    var btn = document.getElementById('btn')
+    btn.addEventListener('click',foo)
+    function foo(){
+        return alert('alert')
+        console.log(123)
+    }
+    let arr = [
+        {id:'001',name:'抽烟',done:true},
+        {id:'002',name:'喝酒',done:false},
+        {id:'003',name:'开车',done:true}
+    ]
+    const flag = arr.map((item)=>{
+        return {...item,flag:true}
+    })
+    console.log(flag,'flag--')
+</script>
+</html>

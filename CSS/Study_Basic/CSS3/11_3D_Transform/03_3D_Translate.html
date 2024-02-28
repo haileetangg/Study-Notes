@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        3D位移可以在2D位移的基础上让元素沿Z轴位移
+        可通过如下两种方式来实现
+        translateZ(value)，需要指定长度值，不能是百分比，正值朝外，负值朝里
+        translate3d(x,y,z),且xyz都不能省略
+     -->
+    <style>
+      .outer{
+        width: 200px;
+        height: 200px;
+        border: 2px solid black;
+        margin: auto;
+        margin-top: 50px;
+        /* 开启3D空间 */
+        transform-style: preserve-3d;
+        /* 设置景深（有了透视效果，近小远大） */
+        perspective: 500px;
+        /* 设置透视点的位置 */
+        perspective-origin: 102px 102px;
+      }
+      .inner{
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        transform: translateZ(-50px);
+      }
+    </style>
+</head>
+<body>
+  <div class="outer">
+    <div class="inner"></div>
+  </div>
+</body>
+</html>

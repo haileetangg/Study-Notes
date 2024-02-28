@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation_MultiProperty</title>
+  <style>  
+    .outer {
+      width:1000px;
+      height:100px;
+      border: 2px solid pink;
+    }
+    /* 两种定义方式 */
+    @keyframes xiangyouyi {
+      from {
+        background-color: black;
+      }
+      to {
+        transform: translate(900px);
+        background-color: aquamarine;
+      }
+    }
+    @keyframes playingGames {
+      0% {
+        background-color: pink;  
+      }
+      50% {
+        background-color: blue;
+      }
+      100% {
+        transform: translate(900px);
+        background-color: green;
+      }
+    }
+    .inner{
+      width:100px;
+      height:100px;
+      background-color: black;
+      /* 复合属性只要延迟时间在动画播放时间后面就可以，其他顺序都不讲 */
+      animation: playingGames 1s 0.2s linear infinite alternate forwards;
+    }
+    .outer:hover .inner{
+      /* 动画的播放状态 */
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body>
+  <div class="outer">
+    <div class="inner"></div>
+  </div>
+</body>
+</html>

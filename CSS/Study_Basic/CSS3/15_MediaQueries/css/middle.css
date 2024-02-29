@@ -1,0 +1,5 @@
+@media screen and (max-width:992px) and (min-width:768px) {
+    h1 {
+        background-color: purple;
+    }
+}

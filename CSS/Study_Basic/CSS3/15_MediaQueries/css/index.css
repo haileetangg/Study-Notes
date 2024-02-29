@@ -1,0 +1,10 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  h1 {
+    height: 200px;
+    background-color: pink;
+    line-height: 200px;
+    text-align: center;
+  }

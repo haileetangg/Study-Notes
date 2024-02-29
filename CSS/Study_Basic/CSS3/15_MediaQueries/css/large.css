@@ -1,0 +1,5 @@
+@media screen and (max-width:1200px) and (min-width:992px){
+    h1 {
+        background-color: orange;
+    }
+}

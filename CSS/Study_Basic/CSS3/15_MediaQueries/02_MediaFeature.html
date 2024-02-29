@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media_Features</title>
+    <style>
+        /* 值：
+            width: 检测视口的宽度
+                min-width: 检测视口的最小宽度
+                max-width: 检测视口的最大宽度
+                
+            height也是如此
+
+            device-width: 检测设备屏幕的宽度
+                min-device-width: 检测设备屏幕的最小宽度
+                max-device-width: 检测设备屏幕的最大宽度
+        
+        */
+      h1 {
+        height:200px;
+        background-color: pink;
+        line-height:200px;
+        text-align: center;
+        font-size: 50px;
+        color: white;
+      }
+      /* 检测到视口的宽度为800px时，应用如下样式 */
+      @media (width:800px){
+        h1 {
+          background-color: red;
+        }
+      }
+      /* 检测到视口的宽度大于等于900px时，应用如下样式 */
+      @media (min-width:900px){
+        h1 {
+          background-color: purple;
+        }
+      }
+      /* 检测到视口的宽度小于等于600px时，应用如下样式 */
+      @media (max-width:600px){
+        h1 {
+          background-color: skyblue;
+        }
+      }
+      @media (max-device-width:2560px){
+        h1 {
+          background-color: black;
+        }
+      }
+    </style>
+</head>
+<body>
+  <h1>你好呀,Hailee!</h1>
+</body>
+</html>

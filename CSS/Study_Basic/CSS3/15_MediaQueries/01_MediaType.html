@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media_Type</title>
+    <style>
+        /* 三种媒体类型：
+            1.print
+            2.screen
+            3.all
+        */
+      div {
+        width: 500px;
+        height: 300px;
+        background-image: linear-gradient(red,pink,green);
+        margin: 40px auto 0;
+        text-align: center;
+        line-height: 300px;
+        font-size: 50px;
+        color: white;
+        text-shadow: 0 0 10px red;
+      }
+      @media print {
+        h1 {
+          background: none;
+        }
+      }
+      @media screen {
+        h1 {
+          background: pink;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>你好啊！</h1>
+    </div>
+</body>
+</html>

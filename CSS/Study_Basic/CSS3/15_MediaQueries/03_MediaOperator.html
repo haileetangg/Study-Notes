@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaOperator</title>
+    <!-- 
+      运算符：
+        and       并且
+        . 或 or   或
+        not       否定
+        only      肯定
+     -->
+    <style>
+      * {
+          padding:0;
+          margin:0;
+      }
+      h1 {
+          height: 200px;
+          background-color: pink;
+          text-align: center;
+          line-height: 200px;
+          font-size: 100px;
+      }
+      /* 且 运算符 */
+      @media screen and (min-width:600px) and (max-width:800px){
+        h1{
+          background-color: hotpink;
+        }
+      }
+
+      /* 或 运算符 */
+      @media screen and (min-width:900px) or (max-width:600px){
+        h1{
+           background-color: antiquewhite;
+        }
+      }
+      /* 否定 运算符 */
+      @media not screen {
+        h1 {
+          background-color: orange;
+        }
+      }
+      /* 肯定 运算符 */
+      @media only screen {
+        h1 {
+           background-color: hotpink;
+        }
+      }
+    </style>
+</head>
+<body>
+    <h1>
+        你好啊
+    </h1>
+</body>
+</html>
